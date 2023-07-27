@@ -15,7 +15,14 @@ public class TestDb {
 		
 		System.out.println(DBQuerys.dbSelectQuery(conn, selectQuery));
 		
-		DbConnection.closeDbConnection(conn);
+		String updateQuery="update customers set CustomerName = 'TestDragos' where CustomerName = 'TestElena'";
+		DBQuerys.dbUpdateQuery(conn, updateQuery);
+	    System.out.println();
+	
+	    String deleteQuery="delete from customers where CustomerName='TestDragos22';";
+	    DBQuerys.dbDeleteQuery(conn, deleteQuery);
+	    System.out.println(DBQuerys.dbSelectQuery(conn, deleteQuery));
+	    DbConnection.closeDbConnection(conn);
 	}
 
 }
